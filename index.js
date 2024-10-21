@@ -2,8 +2,8 @@
 //import fs from 'fs'; // es module
 //fs.writeFileSync('test.txt', 'hello node');
 
-//const common = require('./common.js');
-import common from './common.js';
+
+const common = require('./common.js');
 common.hello();
-import es from './es.js';
+const es = require('./es.js').default;
 es.hello()
