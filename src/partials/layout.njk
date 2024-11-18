@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}default title{% endblock %}</title>
 </head>
 <body>
+    {% include 'src/partials/nav.njk' %}
     <div class="container">
         <div class="content">
-            <h1>helo</h1>
-            <button class="button is-primary">click me</button>
+            {% block content %} {% endblock %}
         </div>
-
     </div>
+    {% include 'src/partials/footer.njk' %}
 </body>
 </html>
