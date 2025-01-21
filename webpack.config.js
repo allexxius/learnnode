@@ -13,7 +13,7 @@ export default {
       directory: path.join(import.meta.dirname, 'public'),
     },
     compress: true,
-    port: 9000,
+    port: 9001,
   },
   module: {
     rules: [
