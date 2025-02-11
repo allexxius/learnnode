@@ -1,6 +1,8 @@
 <script setup>
 defineProps(['active']);
+
 const emit = defineEmits(['close']);
+
 document.body.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
         emit('close');;
