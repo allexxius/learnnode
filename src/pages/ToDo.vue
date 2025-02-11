@@ -1,20 +1,20 @@
 <script setup>
 
 import { computed, ref } from 'vue';
-import ItemList from './ItemList.vue';
+import ItemList from '../components/ItemList.vue';
 
 let message = ref('');
 let i = 1;
 let items = ref([
-    {id: i++, name: 'piim', isDone: false },
-    {id: i++, name: 'leib', isDone: false },
-    {id: i++, name: 'kommid', isDone: false },
-    {id: i++, name: 'krõpsud', isDone: false },
+    { id: i++, name: 'piim', isDone: false },
+    { id: i++, name: 'leib', isDone: false },
+    { id: i++, name: 'kommid', isDone: false },
+    { id: i++, name: 'krõpsud', isDone: false },
 ]);
 
 function addItem() {
     if (message.value.trim() !== '') {
-        items.value.push({id: i++, name: message.value.trim(), isDone: false});
+        items.value.push({ id: i++, name: message.value.trim(), isDone: false });
     }
     message.value = '';
 }

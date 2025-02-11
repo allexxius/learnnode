@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-
 defineProps(['items']);
 const emit = defineEmits(['change']);
 let active = ref(0);
