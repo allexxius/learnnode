@@ -6,7 +6,11 @@ import Tabs from './components/Tabs.vue';
 
 <template>
     <Tabs></Tabs>
-    <RouterView></RouterView>
+    <div class="container">
+        <section class="section">
+            <RouterView></RouterView>
+        </section>
+    </div>
 </template>
 
 <style></style>
