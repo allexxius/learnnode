@@ -8,7 +8,9 @@ import Tabs from './components/Tabs.vue';
     <Tabs></Tabs>
     <div class="container">
         <section class="section">
-            <RouterView></RouterView>
+            <Suspense>
+                <RouterView></RouterView>
+            </Suspense>
         </section>
     </div>
 </template>
