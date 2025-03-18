@@ -1,7 +1,7 @@
 <script setup>
 
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import CharacterCard from '../components/CharacterCard.vue';
 import Pagination from '../components/Pagination.vue';
 
@@ -23,12 +23,11 @@ async function getCharacters() {
             }
         });
         console.log(response.data);
-        characters.value = response.data.results;
+        characters.value.push(...response.data.results);
         info.value = response.data.info;
     } catch (err) {
         console.log(err);
         error.value = 'No results found';
-        characters.value = [];
         info.value = null;
     }
 }
@@ -59,6 +58,15 @@ async function search() {
 
 }
 
+onMounted(() => {
+    document.addEventListener('scroll', () => {
+        if (window.scrollY + window.innerHeight > document.body.clientHeight - 300) {
+            next();
+        }
+    })
+
+});
+
 </script>
 <template>
     <div class="field has-addons">
@@ -72,7 +80,6 @@ async function search() {
         </div>
     </div>
 
-    <Pagination v-if="info" :info="info" :current="currentPage" @next="next" @prev="prev" @page="page"></Pagination>
     <div class="columns is-multiline">
         <div v-for="character in characters" class="column is-one-quarter">
             <CharacterCard :character="character"></CharacterCard>
