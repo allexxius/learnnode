@@ -10,6 +10,7 @@ const info = ref({});
 const currentPage = ref(1);
 const searchValue = ref('');
 const error = ref('');
+let searchTimeout = null;
 
 await getCharacters();
 
@@ -49,16 +50,20 @@ async function page(page) {
 }
 
 async function search() {
-    error.value = '';
-    currentPage.value = 1;
-    await getCharacters();
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(async () => {
+        error.value = '';
+        currentPage.value = 1;
+        await getCharacters();
+    }, 1000);
+
 }
 
 </script>
 <template>
     <div class="field has-addons">
         <div class="control is-expanded">
-            <input v-model="searchValue" class="input" type="text" placeholder="Find a character">
+            <input @input="search" v-model="searchValue" class="input" type="text" placeholder="Find a character">
         </div>
         <div class="control">
             <button @click="search" class="button is-info">
