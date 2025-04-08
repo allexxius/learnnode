@@ -15,6 +15,7 @@ export default {
     compress: true,
     port: 9001,
     historyApiFallback: true,
+    allowedHosts: "all",
   },
   module: {
     rules: [
