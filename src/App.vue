@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import Tabs from './components/Tabs.vue';
+import { RouterView } from 'vue-router'
 
 </script>
 
 <template>
     <Tabs></Tabs>
-    <div class="columns" v-if="$route.meta.container !== false">
+    <div class="container" v-if="$route.meta.container !== false">
         <section class="section">
             <Suspense>
                 <RouterView></RouterView>
